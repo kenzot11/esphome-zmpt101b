@@ -15,6 +15,6 @@ CONFIG_SCHEMA = sensor.SENSOR_SCHEMA.extend({
 })
 
 def to_code(config):
-    var = cg.new_Pvariable(config[CONF_ID], config["adc_pin"], config["sensitivity"])
+    var = cg.new_Pvariable(config[CONF_ID], config["adc_pin"], config["sensitivity"], config["update_interval"])
     yield cg.register_component(var, config)
     yield sensor.register_sensor(var, config)
