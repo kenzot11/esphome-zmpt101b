@@ -10,7 +10,8 @@ Zmpt101bSensor = sensor_ns.class_('ZMPT101BSensor', cg.PollingComponent)
 CONFIG_SCHEMA = sensor.SENSOR_SCHEMA.extend({
     cv.GenerateID(): cv.declare_id(Zmpt101bSensor),
     cv.Required("adc_pin"): cv.int_range(min=0, max=99),
-    cv.Optional("sensitivity", default=500): cv.float_range(min=0, max=1000)
+    cv.Optional("sensitivity", default=500): cv.float_range(min=0, max=1000),
+    cv.Optional("update_interval", default="60s"): cv.update_interval
 })
 
 def to_code(config):
